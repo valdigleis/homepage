@@ -1,0 +1,247 @@
+/* -------------------------------------------
+    The font
+------------------------------------------- */
+
+@font-face {
+  font-family: DroidSans;
+  src: url('../fonts/DroidSansMono.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* -------------------------------------------
+    The structures
+------------------------------------------- */
+
+*::-moz-selection {
+  background: rgba(255, 255, 0, 0.3);
+  color: #000;
+}
+
+*::selection {
+  background: rgba(255, 255, 0, 0.3);
+  color: #000;
+}
+
+
+h1 {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+body {
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  line-height: 1.5;
+  font-size: 14pt;
+}
+
+p {
+  text-align: justify;
+  padding: 5px;
+  margin: 0px;
+}
+
+a, a::selection  {
+  color: salmon;
+}
+
+span, span::selection {
+  color: darkcyan;
+}
+
+nav {
+  text-align: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin: 10px;
+  padding: 0px;
+}
+
+section {
+  margin: 15px 10px;
+  padding: 0px;
+}
+
+/* -------------------------------------------
+    Classe usadas globalmente
+------------------------------------------- */
+.container {
+  max-width: 800px; 
+}
+
+.title {
+  margin-top: 3rem;
+  padding: 0px;
+  text-align: center;
+}
+
+.lines {
+  border-top: 1px black solid;
+  border-bottom: 1px black solid;
+}
+
+/* -------------------------------------------
+    Card de apresentação
+------------------------------------------- */
+.card {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.value-prop {
+  margin-top: 1rem; 
+}
+
+.value-img {
+  display: block;
+  text-align: center;
+  margin: 2.5rem auto 0;
+}
+
+.value-props {
+  margin-top: 4rem;
+}
+
+.value-props.row ul {
+  list-style: none;
+  margin: 10px;
+}
+
+.value-props.row ul li {
+  display: inline-block;
+  margin: 5px;
+  border-radius: 10%;
+  padding: 3px;
+}
+
+.value-props.row ul li a {
+  color: black;
+}
+
+.value-props.row ul li a:hover {
+  color: gray;
+}
+
+/* -------------------------------------------
+    Barra de navegação
+------------------------------------------- */
+.menu-nav ul {
+  list-style: none;
+  margin: 5px;
+  padding: 0px;
+}
+
+.menu-nav ul li {
+  display: inline-block;
+  margin: 5px 10px;
+  padding: 5px;
+}
+
+.menu-nav ul li a {
+  text-decoration: none;
+}
+
+/* -------------------------------------------
+    Página de cursos
+------------------------------------------- */
+#courses h5 {
+  padding: 0px;
+  margin: 0px;
+  color: teal;
+}
+
+#courses p {
+  text-align: justify;
+  padding: 0px;
+  margin: 10px 0px;
+}
+
+#courses ul {
+  list-style: square;
+  margin: 0px 10px;
+  padding: 0px 15px;
+}
+
+#courses ul li {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* -------------------------------------------
+    Página de Publicações
+------------------------------------------- */
+#publications h4 {
+  padding: 0px;
+  margin: 0px;
+  color: teal;
+}
+
+#publications p {
+  text-align: justify;
+  padding: 0px;
+  margin: 10px 0px;
+}
+
+#publications ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+#publications ul li {
+  margin: 15px 0px;
+  padding: 0px;
+}
+
+/* -------------------------------------------
+    Página dos projetos
+------------------------------------------- */
+#projects h4 {
+  padding: 0px;
+  margin: 0px;
+  color: teal;
+}
+
+#projects p {
+  text-align: justify;
+  padding: 0px;
+  margin: 10px 0px;
+}
+
+.card-project {
+  background-color: blanchedalmond;
+  border: 1px gray solid;
+  margin: 15px 0px;
+  padding: 0px 15px;
+}
+
+.card-project ul {
+  list-style-type: none;
+  margin: 10px 0px;
+}
+
+.card-project ul li {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+/* -------------------------------------------
+    Página dos erros
+------------------------------------------- */
+
+.error {
+  margin-top: 10rem;
+  text-align: center;
+}
+
+
+.error img {
+  height: 256px;
+  width: 256px;
+}
+
+.error h3 {
+  text-align: justify;
+}
