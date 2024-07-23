@@ -1,3 +1,51 @@
+<?php
+
+// Caminho para o diretório de posts
+$dir = __DIR__;
+
+// Array para armazenar os arquivos
+$files = [];
+$infos = [];
+
+// Ler o diretório e encontrar arquivos post.html
+if (is_dir($dir)) {
+  if ($dh = opendir($dir)) {
+    while (($file = readdir($dh)) !== false) {
+      if (preg_match('/\.html$/', $file)) {
+        $files[] = $file;
+        $timestamp = filemtime($file);
+        $infos[] = date("Y-m-d", $timestamp);
+      }
+    }
+    closedir($dh);
+  }
+}
+
+// Função para comparar datas de criação de arquivos
+function compare_file_dates($a, $b) {
+  return filemtime($b) - filemtime($a);
+}
+
+// Função para pegar o texto do primeiro h1 da página
+function getFirstH1Text($filename) {
+  if(file_exists($filename)){
+    $content = file_get_contents($filename);
+    $pattern = '/<h1 id="my-title">(.*?)<\/h1>/s';
+    if (preg_match($pattern, $content, $matches)) {
+      return $matches[1];
+    }else{
+      return "Arquivo encontrado";
+    }
+  }else{
+    return "Não";
+  }
+}
+
+// Ordenar os arquivos pela data de modificação
+usort($files, 'compare_file_dates');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,21 +66,21 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="../js/utils.js"></script>
   <!-- Favico -->
-  <link rel="icon" href="../imgs/icons/courses.png">
+  <link rel="icon" href="../imgs/icons/favicon.png">
 </head>
 <body>
 
   <h1>Prof. Valdigleis S. Costa</h1>
 
   <div class="container">
-
+    
     <nav class="menu-nav">
       <ul>
         <li>
-          <a href="https://valdigleis.site">Home</a>
+          Home
         </li>
         <li>
-          Teaching
+          <a href="../teaching/">Teaching</a>
         </li>
         <li>
           <a href="../publications.html">Publications</a>
@@ -42,49 +90,53 @@
         </li>
       </ul>
     </nav>
-    
-    <section id="courses">
-      <h5>Current Courses</h5>
+
+    <section class="blog">
+
+      <div class="row">
+        <div class="seven columns">
+          <h4 class="title">Olá pessoALL!!!</h4>
+        </div>
+        <div class="five columns" id="postupdate">
+        </div>
+      </div>
+
+      <img src="../imgs/figs/my-icon.jpg" alt="Foto do campo">
+      
       <p>
-        Here you will find the list of currently active courses, for more details «<span>in Portuguese</span>» click in below links:
+        Gosta de muitas coisas diferentes, aqui você poderá encontrar listas e também textos das coisas que gosto! Em relação aos textos, alguns são já muito antigos, de meados dos anos 2000, e refletem as opiniões que eu tinha na época, e devido a isso, talvez algumas informações estejam desatualizadas, ou mesmo, eu já não tenha mas a mesma opinião. 
       </p>
-      <ul>
-        <li>
-          <a href="">CCMP0142</a> [<span>34A</span>]
-        </li>
-        <li>
-          <a href="">CCMP0161</a> [<span>34B</span>]
-        </li>
-        <li>
-          <a href="">CCMP0164</a> [<span>34C</span>]
-        </li>
+
+      <div class="row">
+        <div class="twelve columns">
+          <h4 class="title">Listas</h4>
+        </div>
+      </div>
+      <ul class="my-lists">
+        <li>Lista de Canais do YouTube</li>
+        <li>Lista de Páginas e Blogs Pessoais</li>
       </ul>
-      <p>
-        <i class="fa-solid fa-circle-info" style="color: skyblue;"></i> Infos: 34 (Tuesday and Wednesday), A (10:00-12:00), B (13:00-15:00), and C (15:00-17:00). For the complete list click <a href="listcourses.html" target="_blank">here</a>.
-      </p>
-      <h5>Finished Courses</h5>
-      <p>
-        Here you will find the list of finished courses.
-      </p>
+      
+      <div class="row">
+        <div class="twelve columns">
+          <h4 class="title">Textos</h4>
+        </div>
+      </div>
+
       <ul>
-        <li>CCMP0164</li>
-        <li>CCMP0161</li>
-        <li>CCMP0169</li>
-        <li>CCMP0165</li>
-        <li>CCMP0133</li>
-        <li>CCMP0171 «Assistent professor:<span>Mayara Benício</span>»</li> 
-        <li>CCMP0159 «Assistent professor:<span>Mayara Benício</span>»</li> 
-        <li>CCMP0161</li>
-        <li>CCMP0178</li> 
-        <li>CCMP0169</li>
-        <li>CCMP0165</li>
-        <li>CCMP0133</li>
-        <li>CCMP0164</li>
-        <li>CCMP0161</li>
-        <li>CCMP0133</li>
-        <li>CCMP0142 «Assistent professor:<span>Débora da Conceição</span>»</li>
-        <li>CCMP0133</li>
+        <?php
+          $size = count($files);
+          for($i = 0; $i < $size; $i++) {
+            if($i > 0){
+              echo "\n\t\t<li><em class='textsperator'>" . $infos[$i] . "</em> <a href='$files[$i]'>" . getFirstH1Text($files[$i]) . "</a></li>";
+            }else {
+              echo "<li><em class='textsperator'>" . $infos[$i] . "</em> <a href='$files[$i]'>" . getFirstH1Text($files[$i]) . "</a></li>";
+            }
+          }
+          echo "\n";
+        ?>
       </ul>
+      
     </section>
 
     <footer class="linetop">
@@ -128,5 +180,7 @@
     </footer>
 
   </div>
+ 
 </body>
 </html>
+

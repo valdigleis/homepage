@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="css/mystyle.css">
   <!-- Scripts -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="js/utils.js"></script>
   <!-- Favico -->
   <link rel="icon" href="imgs/icons/favicon.png">
 </head>
@@ -44,13 +45,8 @@
     
     <header class="card">
       <div class="value-props row">
-        <img class="value-img" src="imgs/figs/minha-foto.jpg" alt="Foto">
+        <img class="value-img" src="imgs/figs/my-icon.jpg" alt="Foto">
         <ul>
-          <li>
-            <a href="mailto:valdigleis@gmail.com" title="E-mail">
-              <i class="fa-regular fa-envelope fa-2x"></i>
-            </a>
-          </li>
           <li>
             <a href="https://scholar.google.com.br/citations?user=RRm81pYAAAAJ&hl=pt-BR" target="_blank" title="Google Scholar">
               <i class="ai ai-google-scholar-square ai-2x"></i>
@@ -71,11 +67,6 @@
               <i class="ai ai-dblp ai-2x"></i>
             </a>
           </li>
-          <li>
-            <a href="https://github.com/valdigleis" target="_blank" title="Github">
-              <i class="fa-brands fa-github fa-2x"></i>
-            </a>
-          </li>
         </ul>
       </div>
       <div class="row">
@@ -89,8 +80,45 @@
         </div>
       </div>
     </header>
-
-    <br>
+    <footer class="linetop">
+      <div class="row">
+          <div class="nine columns">
+            <ul class="copyright">
+              <li> <script> document.write(getCopyrightText()); </script> </li>
+              <li>Create with <a href="http://neovim.io/" target="_blank">Neovim</a> v0.10.0 on <a href="https://www.gnu.org/" target="_blank">GNU</a>/<a href="https://www.debian.org/" target="_blank">Linux</a></li>
+            </ul>
+          </div>
+          <div class="three columns">
+            <ul class="social">
+              <li>
+                <a href="https://mastodon.social/@dk4ll" target="_blank" title="Mastodon">
+                  <i class="fa-brands fa-mastodon"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.reddit.com/user/Dk4LL/" target="_blank" title="Reddit">
+                  <i class="fa-brands fa-reddit"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/valdigleis/" target="_blank" title="Instagram">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/valdigleis" target="_blank" title="Github">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://discordapp.com/users/435112713870376962" target="_blank" title="Discord">
+                  <i class="fa-brands fa-discord"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+      </div>
+    </footer>
   </div>
 </body>
 </html>
